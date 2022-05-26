@@ -4,9 +4,8 @@ import java.io.*;
 import java.util.Date;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import javax.xml.crypto.Data;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet(name = "helloServlet", value = "/hello")
 public class HelloServlet extends HttpServlet {
 //    private String message;
 
@@ -19,10 +18,13 @@ public class HelloServlet extends HttpServlet {
 
         // Hello
 
-        Date today = new Date();
+
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
+        Date today = new Date();
+        long currentMilli = today.getTime();
         out.println("<h1>" + today + "</h1>");
+        out.println("<h1>" + currentMilli + "</h1>");
         out.println("</body></html>");
     }
 
