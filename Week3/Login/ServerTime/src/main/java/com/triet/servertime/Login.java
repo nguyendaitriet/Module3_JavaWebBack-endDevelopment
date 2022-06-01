@@ -1,5 +1,6 @@
 package com.triet.servertime;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 @WebServlet(name = "login", value = "/login")
 public class Login extends HttpServlet {
@@ -19,9 +21,11 @@ public class Login extends HttpServlet {
         writer.println("<html>");
 
         if ("admin".equals(username) && "admin".equals(password)) {
-            writer.println("<h1>Welcome " + username + " to website</h1>");
+            request.setAttribute("loginTime", new Date());
+            RequestDispatcher dispatcher = request.getRequestDispatcher("view.jsp");
+            dispatcher.forward(request,response);
         } else {
-            writer.println("<h1>Login Error</h1>");
+            response.sendRedirect("index.jsp");
         }
 
         writer.println("</html>");
