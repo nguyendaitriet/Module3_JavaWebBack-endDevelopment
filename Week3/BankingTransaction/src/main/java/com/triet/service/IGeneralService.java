@@ -1,15 +1,16 @@
 package com.triet.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface IGeneralService<T> {
     List<T> findAll();
 
-    T findById(long id);
+    T findById(long id) throws SQLException;
 
-    void save(T t);
+    boolean save(T t) throws SQLException;
 
-    void update(long id, T t);
+    boolean update(T t) throws SQLException;
 
-    boolean remove(long id);
+    boolean remove(long id) throws SQLException;
 }

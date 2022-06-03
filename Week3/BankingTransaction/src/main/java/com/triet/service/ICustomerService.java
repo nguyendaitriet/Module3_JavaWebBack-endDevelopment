@@ -2,6 +2,7 @@ package com.triet.service;
 
 import com.triet.model.Customer;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface ICustomerService extends IGeneralService<Customer> {
@@ -9,15 +10,15 @@ public interface ICustomerService extends IGeneralService<Customer> {
     List<Customer> findAll();
 
     @Override
-    Customer findById(long id);
+    Customer findById(long id) throws SQLException;
 
     @Override
-    void save(Customer customer);
+    boolean save(Customer customer) throws SQLException;
 
     @Override
-    void update(long id, Customer customer);
+    boolean update(Customer customer) throws SQLException;
 
     @Override
-    boolean remove(long id);
+    boolean remove(long id) throws SQLException;
 }
 

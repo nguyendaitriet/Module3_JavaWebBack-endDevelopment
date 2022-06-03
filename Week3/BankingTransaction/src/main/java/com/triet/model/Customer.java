@@ -50,6 +50,14 @@ public class Customer {
         this.address = address;
     }
 
+    public Customer(long id, String name, String email, String phone, String address) {
+        this.id = id;
+        this.fullName = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+    }
+
     public long getId() {
         return id;
     }
@@ -136,5 +144,22 @@ public class Customer {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", balance=" + balance +
+                ", createdAt=" + createdAt +
+                ", createdBy=" + createdBy +
+                ", updatedAt=" + updatedAt +
+                ", updatedBy=" + updatedBy +
+                ", deleted=" + deleted +
+                '}';
     }
 }

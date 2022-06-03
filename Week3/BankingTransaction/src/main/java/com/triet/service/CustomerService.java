@@ -26,16 +26,10 @@ public class CustomerService implements ICustomerService {
         List<Customer> customers = new ArrayList<>();
         try {
             Connection connection = MySQLConnUtils.getSqlConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CUSTOMERS);
-            ResultSet rs = preparedStatement.executeQuery();
+            PreparedStatement statement = connection.prepareStatement(SELECT_ALL_CUSTOMERS);
+            ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                long id = rs.getLong("id");
-                String fullName = rs.getString("full_name");
-                String email = rs.getString("email");
-                String phone = rs.getString("phone");
-                String address = rs.getString("address");
-                BigDecimal balance = rs.getBigDecimal("balance");
-                customers.add(new Customer(id, fullName, email, phone, address, balance));
+                customers.add(getCustomer(rs));
             }
         } catch (SQLException e) {
             MySQLConnUtils.printSQLException(e);
@@ -43,34 +37,58 @@ public class CustomerService implements ICustomerService {
         return customers;
     }
 
-    @Override
-    public Customer findById(long id) {
-        return null;
+    public Customer getCustomer(ResultSet rs) throws SQLException {
+        long id = rs.getLong("id");
+        String fullName = rs.getString("full_name");
+        String email = rs.getString("email");
+        String phone = rs.getString("phone");
+        String address = rs.getString("address");
+        BigDecimal balance = rs.getBigDecimal("balance");
+        return new Customer(id, fullName, email, phone, address, balance);
     }
 
     @Override
-    public void save(Customer customer) {
-        try {
+    public Customer findById(long id) throws SQLException {
+        Customer currentCustomer = null;
         Connection connection = MySQLConnUtils.getSqlConnection();
-        CallableStatement statement = connection.prepareCall("{CALL sp_add_new_customer(?, ?, ?, ?);}");
-        statement.setString(1,customer.getFullName());
-        statement.setString(2,customer.getEmail());
-        statement.setString(3,customer.getPhone());
-        statement.setString(4,customer.getAddress());
-        statement.executeQuery();
-        } catch (SQLException e) {
-            MySQLConnUtils.printSQLException(e);
+        CallableStatement statement = connection.prepareCall("{CALL sp_get_customer_by_id(?)}");
+        statement.setLong(1, id);
+        ResultSet rs = statement.executeQuery();
+        while (rs.next()) {
+            currentCustomer = getCustomer(rs);
         }
+        return currentCustomer;
     }
 
     @Override
-    public void update(long id, Customer customer) {
-
+    public boolean save(Customer customer) throws SQLException {
+            Connection connection = MySQLConnUtils.getSqlConnection();
+            CallableStatement statement = connection.prepareCall("{CALL sp_add_new_customer(?, ?, ?, ?)}");
+            statement.setString(1, customer.getFullName());
+            statement.setString(2, customer.getEmail());
+            statement.setString(3, customer.getPhone());
+            statement.setString(4, customer.getAddress());
+            return statement.executeUpdate() > 0;
     }
 
     @Override
-    public boolean remove(long id) {
-        return false;
+    public boolean update(Customer customer) throws SQLException {
+        Connection connection = MySQLConnUtils.getSqlConnection();
+        CallableStatement statement = connection.prepareCall("{CALL sp_update_customer(?, ?, ?, ?, ?)}");
+        statement.setLong(1, customer.getId());
+        statement.setString(2, customer.getFullName());
+        statement.setString(3, customer.getEmail());
+        statement.setString(4, customer.getPhone());
+        statement.setString(5, customer.getAddress());
+        return statement.executeUpdate() > 0;
+    }
+
+    @Override
+    public boolean remove(long id) throws SQLException {
+        Connection connection = MySQLConnUtils.getSqlConnection();
+        CallableStatement statement = connection.prepareCall("{CALL sp_remove_customer(?)}");
+        statement.setLong(1, id);
+        return statement.executeUpdate() > 0;
     }
 }
 

@@ -15,7 +15,7 @@ public class MySQLConnUtils {
     public static Connection getSqlConnection() {
         Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = connectToMySQL();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

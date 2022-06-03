@@ -27,3 +27,8 @@
 .table > tbody > tr > td {
     vertical-align: middle;
 }
+
+.pa-bottom {
+    padding-bottom: 0!important;
+    margin-bottom: 0!important;
+}

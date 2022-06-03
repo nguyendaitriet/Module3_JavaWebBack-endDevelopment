@@ -20,7 +20,6 @@
                         <i class="fa-solid fa-plus"></i>
                         <span>Add New Customer</span>
                     </a>
-                    </button>
                     <a href="/transfers" class="btn btn-outline-light">
                         <i class="fa fa-history" aria-hidden="true"></i>
                         <span>Transfer money Information</span>
@@ -52,20 +51,20 @@
                             <td>${customer.getAddress()}</td>
                             <td>${customer.getBalance()}</td>
                             <td>
-                                <a title="Edit" href="./services/updateInfo.html" data-toggle="tooltip" class="btn btn-outline-primary">
+                                <a title="Edit" href="/customers?action=edit&id=${customer.getId()}" class="btn btn-outline-primary">
                                     <i class="fas fa-user-edit"></i>
                                 </a>
-                                <a title="Deposit" href="./services/deposit.html" data-toggle="tooltip" class="btn btn-outline-secondary">
+                                <a title="Deposit" href="/deposit?id=${customer.getId()}" class="btn btn-outline-secondary">
                                     <i class="fas fa-plus-circle"></i>
                                 </a>
-                                <a title="Withdraw" href="./services/withdraw.html" data-toggle="tooltip" class="btn btn-outline-success">
+                                <a title="Withdraw" href="/withdraw?id=${customer.getId()}" class="btn btn-outline-success">
                                     <i class="fas fa-minus-circle"></i>
                                 </a>
-                                <a title="Transfer" href="./services/transfer.html" data-toggle="tooltip" class="btn btn-outline-warning">
-                                    <i class="fas fa-people-arrows"></i>                            </a>
-                                <a title="Remove" href="./services/remove.html" data-toggle="tooltip" class="btn btn-outline-danger">
-                                    <i class="fas fa-trash-alt"></i>
+                                <a title="Transfer" href="./services/transfer.html" class="btn btn-outline-warning">
+                                    <i class="fas fa-people-arrows"></i>
                                 </a>
+                                <a title="Remove" href="/customers?action=remove&id=${customer.getId()}" class="btn btn-outline-danger">
+                                    <i class="fas fa-ban"></i>                                </a>
                             </td>
                         </tr>
                     </c:forEach>
