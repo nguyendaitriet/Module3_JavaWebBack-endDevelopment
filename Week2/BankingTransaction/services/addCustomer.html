@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row header">
+            <div class="col-md-8">
+                <h1>
+                    Add New Customer
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <a href="../index.html" class="btn btn-outline-warning">
+                    <i class="fa-regular fa-address-book"></i>
+                    <span>Customers List</span>
+                </a>
+            </div>
+        </div>
+        <form action="post">
+            <fieldset class="row g-3">
+                <div class="col-md-6">
+                    <label for="fullName" class="form-label">Full name</label>
+                    <input type="text" class="form-control" id="fullName" name="fullName" value="">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" value="">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Phone</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" value="">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" name="address" value="">
+                </div>
+                <div class="col-md-6">
+                    <button type="submit" id="addNewCustomer" class="btn btn-outline-primary">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        Add customer
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script src="./resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./resources/scripts/customers.js"></script>
+</body>
+
+</html>

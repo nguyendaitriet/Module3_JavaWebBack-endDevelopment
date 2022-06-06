@@ -1,0 +1,51 @@
+.header{
+    background-color: rgb(24, 40, 24);
+    color: white;
+    padding: 30px 15px;
+}
+.header>div>h1 {
+    font-weight: 600;
+    font-size: 50px;
+}
+.header .btn {
+    float: right;
+    min-width: 50px;
+    outline: none !important;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.pr-30 {
+    padding-right: 15px!important;
+}
+
+.thead-green {
+    background-color: rgb(30, 81, 40);
+    color: #ffffff;
+    text-align: center;
+    font-size: larger;
+}
+
+.float-left {
+    float: left;
+}
+
+form {
+    padding-top: 20px;
+}
+
+label {
+    font-weight: 500;
+}
+
+.pal {
+    padding-left: calc(var(--bs-gutter-x) / 2);
+}
+
+.par {
+    padding-right: calc(var(--bs-gutter-x) / 2);
+}
+
+.clr {
+    clear: both;
+}

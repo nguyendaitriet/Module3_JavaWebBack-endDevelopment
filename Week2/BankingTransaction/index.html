@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="stylesheet" href="./resources/css/style.css">
+    <link rel="stylesheet" href="./resources/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row header">
+            <div class="col-sm-5">
+                <h1>
+                    Customers List
+                </h1>
+            </div>
+            <div class="col-sm-7">
+                <a href="./services/addCustomer.html" class="btn btn-outline-warning">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Add New Customer</span>
+                </a>
+                <a href="./services/transferInfo.html" class="btn btn-outline-warning">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <span>Transfer Information</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <table class="table table-hover" id="tbCustomers">
+                <thead class="thead-green">
+                    <tr>
+                        <th>
+                            <input type="checkbox">
+                        </th>
+                        <th>#</th>
+                        <th>Full Name</th>
+                        <th>Email Address</th>
+                        <th>Phone Number</th>
+                        <th>Address</th>
+                        <th>Balance</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="./resources/scripts/customers.js"></script>
+    <script src="./resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+.float-left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.pl {
+    padding-left: calc(var(--bs-gutter-x) / 2);
+}
+
+.pr {
+    padding-right: calc(var(--bs-gutter-x) / 2);
+}

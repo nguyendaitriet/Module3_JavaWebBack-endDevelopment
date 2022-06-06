@@ -1,4 +1,4 @@
-package com.triet.pharmacyonline.model;
+package com.triet.pharmacyonline.models;
 
 public class User {
     private long id;
@@ -15,6 +15,32 @@ public class User {
     public User() {
     }
 
+    public User(long id, String fullName, String birthday, String phoneNumber, String address, String email, String userName, String password, Role role, long creationTime) {
+        this.id = id;
+        this.fullName = fullName;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.role = role;
+        this.creationTime = creationTime;
+    }
+
+    public User(String raw) {
+        String[] userInformation = raw.split("~");
+        this.id = Integer.parseInt(userInformation[0]);
+        this.fullName = userInformation[1];
+        this.birthday = userInformation[2];
+        this.phoneNumber = userInformation[3];
+        this.address = userInformation[4];
+        this.email = userInformation[5];
+        this.userName = userInformation[6];
+        this.password = userInformation[7];
+        this.role = Role.parseRole(userInformation[8]);
+        this.creationTime = Long.parseLong(userInformation[9]);
+    }
 
     public long getId() {
         return this.id;

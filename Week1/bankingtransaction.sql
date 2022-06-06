@@ -19,7 +19,6 @@ CREATE PROCEDURE sp_deposit (
 			UPDATE customers AS c
 			SET c.balance = c.balance + amount
 			WHERE c.id = customer_id;
-			SET message = "Successfully!";
 			
 			INSERT INTO deposits (
 				created_at,
@@ -33,6 +32,9 @@ CREATE PROCEDURE sp_deposit (
                 customer_id, 
                 CURRENT_TIMESTAMP
 			);		
+            
+			SET message = "Successfully!";
+
 		ELSE
 			SET message = "Failed because amount is equal or less than 0.";
 		END IF;
@@ -67,9 +69,7 @@ CREATE PROCEDURE sp_withdraw (
 				UPDATE customers AS c
 				SET c.balance = credit - amount
 				WHERE c.id = customer_id;
-                
-				SET message = "Successfully!";
-                
+                                
                 INSERT INTO withdraws (
 					created_at,
                     transaction_amount,
@@ -82,6 +82,9 @@ CREATE PROCEDURE sp_withdraw (
                     customer_id,
                     CURRENT_TIMESTAMP
 				);
+                
+				SET message = "Successfully!";
+
 			ELSE
 				SET message = "Failed because transaction amount is less than 50.";
 			END IF;

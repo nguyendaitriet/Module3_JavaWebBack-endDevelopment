@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row header">
+            <div class="col-sm-5">
+                <h1>
+                    Transfer
+                </h1>
+            </div>
+            <div class="col-sm-7">
+                <a href="../index.html" class="btn btn-outline-warning">
+                    <i class="fa-regular fa-address-book"></i>
+                    <span>Customers List</span>
+                </a>
+            </div>
+        </div>
+
+        <form method="post">
+            <div class="mb-3 float-left pr col-lg-3 col-sm-12 col-md-6">
+                <label for="senderID">Sender ID</label>
+                <input type="number" class="form-control" id="senderID" readonly>
+            </div>
+            <div class="mb-3 float-left pr col-lg-3 col-sm-12 col-md-6">
+                <label for="senderName">Sender Name</label>
+                <input type="text" class="form-control" id="senderName" readonly>
+            </div>
+            <div class="mb-3 float-left pr col-lg-3 col-sm-12 col-md-6">
+                <label for="email">Sender Email</label>
+                <input type="email" class="form-control" id="email" readonly>
+            </div>
+            <div class="mb-3 float-left pr col-lg-3 col-sm-12 col-md-6">
+                <label for="balance">Sender Balance</label>
+                <input type="number" class="form-control" id="balance" readonly>
+            </div>
+            <div class="mb-3 float-left pr col-lg-3 col-sm-12 col-md-6">
+                <label for="recipientName">Recipient Name</label>
+                <input type="text" class="form-control" id="recipientName">
+            </div>
+            <div class="mb-3 float-left pr col-lg-3 col-sm-12 col-md-6">
+                <label for="transfer">Transfer Amount</label>
+                <input type="number" class="form-control" id="transfer">
+            </div>
+            <div class="mb-3 float-left pr col-lg-3 col-sm-12 col-md-6">
+                <label for="fee">Fee (%)</label>
+                <input type="number" class="form-control" id="fee" readonly>
+            </div>
+            <div class="mb-3 float-left pr col-lg-3 col-sm-12 col-md-6">
+                <label for="total">Total Amount</label>
+                <input type="number" class="form-control" id="total" readonly>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" id="remove" class="btn btn-outline-warning">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    Transfer
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="./resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

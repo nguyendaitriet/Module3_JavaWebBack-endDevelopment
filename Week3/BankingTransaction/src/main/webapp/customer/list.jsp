@@ -63,7 +63,7 @@
                                 <a title="Transfer" href="./services/transfer.html" class="btn btn-outline-warning">
                                     <i class="fas fa-people-arrows"></i>
                                 </a>
-                                <a title="Remove" href="/customers?action=remove&id=${customer.getId()}" class="btn btn-outline-danger">
+                                <a title="Suspend" href="/customers?action=remove&id=${customer.getId()}" class="btn btn-outline-danger">
                                     <i class="fas fa-ban"></i>                                </a>
                             </td>
                         </tr>
